@@ -129,4 +129,6 @@ Bachelor of Computer Applications (BCA)
 Final Year Project
 of this project.
 
+![Demo 1](images/demo1.png)
 
+![Demo 2](images/demo2.png)
