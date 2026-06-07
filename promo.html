@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+    
+
+      .content5 {
+        z-index: 2;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        grid-gap: 4rem;
+        padding: 2rem;
+        background: var(--footer-background);
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        align-items: center;
+        font-family: "Open Sans", sans-serif;
+      }
+      .content5 a,
+      .content5 p {
+        color: #111;
+        text-decoration: none;
+      }
+
+      .content5 b {
+        color: #111;
+      }
+
+      .content5 p {
+        margin: 10px 20px;
+        font-size: 18px;
+      }
+
+      .content5 .image {
+        align-self: center;
+        width: 4rem;
+        height: 4rem;
+        margin: 0.25rem 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .follow {
+        position: relative;
+        top: 20px;
+      }
+
+      .follow svg {
+        padding: 10px;
+      }
+
+      .top p {
+        font-weight: 400;
+        font-size: 23px;
+        font-family: Pacifico, cursive;
+      }
+
+      .details {
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        justify-content: space-around;
+        align-items: baseline;
+      }
+
+      .info p {
+        font-size: 15px;
+        font-weight: 500;
+        margin: 5px 0;
+      }
+
+      .location_container {
+        margin-bottom: 80px;
+        margin-top: 80px;
+      }
+
+      #bubb {
+        display: grid;
+        grid-template-rows: 1fr 10rem auto;
+        grid-template-areas: "main" "." "footer";
+        overflow-x: hidden;
+        min-height: 60vh;
+      }
+
+      .footer {
+        z-index: 1;
+        --footer-background: #d3b289;
+        display: grid;
+        position: relative;
+        grid-area: footer;
+        min-height: 11rem;
+      }
+
+      .bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1rem;
+        background: var(--footer-background);
+        filter: url("#blob");
+      }
+
+      .bubble {
+        position: absolute;
+        left: var(--position, 50%);
+        background: var(--footer-background);
+        border-radius: 100%;
+        animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+          bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+        transform: translate(-50%, 100%);
+      }
+
+      @keyframes bubble-size {
+        0%,
+        75% {
+          width: var(--size, 4rem);
+          height: var(--size, 4rem);
+        }
+
+        100% {
+          width: 0rem;
+          height: 0rem;
+        }
+      }
+
+      @keyframes bubble-move {
+        0% {
+          bottom: -4rem;
+        }
+
+        100% {
+          bottom: var(--distance, 10rem);
+        }
+      }
+
+      .footer .bubbles .bubble {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .follow a svg {
+          width: 20px;
+          height: 20px;
+          padding: 0;
+        }
+
+        .content5 {
+          padding: 1rem;
+          font-size: 14px;
+        }
+
+        .details {
+          text-align: center;
+          margin-top: 10px;
+          justify-content: space-around;
+          align-items: baseline;
+        }
+
+        .info {
+          margin: 0 5px;
+        }
+
+        .info p {
+          font-size: 11px;
+        }
+
+        .thanks p {
+          font-size: 14px;
+        }
+
+        .top p {
+          font-size: 15px;
+        }
+
+        .footer .content5 {
+          grid-template-rows: 1fr;
+          text-align: center;
+        }
+      }
+    </style>
+    <title>Bubbles Footer</title>
+  </head>
+
+  <body>
+    <!-- footer of bubbles -->
+    <section id="bubb">
+      <div class="footer">
+        <div class="bubbles">
+          <script>
+            for (var i = 0; i < 128; i++) {
+              const bubble = document.createElement("div");
+              bubble.classList.add("bubble");
+              bubble.style.setProperty("--size", `${2 + Math.random() * 4}rem`);
+              bubble.style.setProperty(
+                "--distance",
+                `${6 + Math.random() * 4}rem`
+              );
+              bubble.style.setProperty(
+                "--position",
+                `${-5 + Math.random() * 110}%`
+              );
+              bubble.style.setProperty("--time", `${2 + Math.random() * 2}s`);
+              bubble.style.setProperty(
+                "--delay",
+                `${-1 * (2 + Math.random() * 2)}s`
+              );
+              document.querySelector(".bubbles").appendChild(bubble);
+            }
+          </script>
+        </div>
+        <!-- logo -->
+        <div class="content5">
+          <div class="thanks">
+            <p>
+              Thank you for visiting our chai cafe! We hope you savored the
+              diverse varieties of chai, each one carefully crafted to offer an
+              enriched flavor experience.
+            </p>
+          </div>
+          <div class="details">
+            <div class="info">
+              <p>Email: abc@gmail.com</p>
+              <p>Phone no: 123456789</p>
+              <p>Location: NH16 Goodluck Road</p>
+              <p>Opposite to bus stand,</p>
+              <p>Bhatkal, Karnataka.</p>
+            </div>
+
+            <div class="follow">
+              <div class="top">
+                <p>Follow Us</p>
+              </div>
+
+              <div class="bottom">
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="54"
+                    height="54"
+                    viewBox="0 0 24 24"
+                    style="fill: #1a1a1a"
+                    class="icons"
+                  >
+                    <path
+                      d="M11.666,2.005C6.62,2.17,2.374,6.251,2.025,11.288c-0.369,5.329,3.442,9.832,8.481,10.589V14.65H8.892 c-0.726,0-1.314-0.588-1.314-1.314v0c0-0.726,0.588-1.314,1.314-1.314h1.613v-1.749c0-2.896,1.411-4.167,3.818-4.167 c0.357,0,0.662,0.008,0.921,0.021c0.636,0.031,1.129,0.561,1.129,1.198v0c0,0.663-0.537,1.2-1.2,1.2h-0.442 c-1.022,0-1.379,0.969-1.379,2.061v1.437h1.87c0.591,0,1.043,0.527,0.953,1.111l-0.108,0.701c-0.073,0.47-0.477,0.817-0.953,0.817 h-1.762v7.247C18.235,21.236,22,17.062,22,12C22,6.366,17.341,1.821,11.666,2.005z"
+                    ></path></svg
+                ></a>
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="54"
+                    height="54"
+                    viewBox="0 0 32 32"
+                    class="icons"
+                  >
+                    <path
+                      d="M 28 8.558594 C 27.117188 8.949219 26.167969 9.214844 25.171875 9.332031 C 26.1875 8.722656 26.96875 7.757813 27.335938 6.609375 C 26.386719 7.171875 25.332031 7.582031 24.210938 7.804688 C 23.3125 6.847656 22.03125 6.246094 20.617188 6.246094 C 17.898438 6.246094 15.691406 8.453125 15.691406 11.171875 C 15.691406 11.558594 15.734375 11.933594 15.820313 12.292969 C 11.722656 12.089844 8.042969 10.128906 5.519531 7.1025 C 5.101563 7.792969 4.859375 8.589844 4.859375 9.4375 C 4.859375 11.039063 5.679688 12.429688 6.925781 13.242188 C 6.121094 13.222656 5.367188 12.996094 4.710938 12.617188 C 4.710938 12.632813 4.710938 12.652344 4.710938 12.671875 C 4.710938 15.007813 6.417969 17.003906 8.65625 17.457031 C 8.261719 17.558594 7.84375 17.605469 7.410156 17.605469 C 7.097656 17.605469 6.792969 17.578125 6.496094 17.523438 C 7.113281 19.480469 8.917969 20.921875 11.039063 20.960938 C 9.347656 22.277344 7.238281 23.050781 4.917969 23.050781 C 4.558594 23.050781 4.207031 23.03125 3.859375 22.988281 C 6.003906 24.402344 8.558594 25.246094 11.320313 25.246094 C 20.59375 25.246094 25.957031 17.683594 25.957031 11.730469 C 25.957031 11.539063 25.957031 11.347656 25.945313 11.160156 C 26.910156 10.480469 27.757813 9.648438 28.429688 8.703125 Z"
+                    ></path></svg
+                ></a>
+                <a href=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="54"
+                    height="54"
+                    viewBox="0 0 64 64"
+                    class="icons"
+                  >
+                    <path
+                      d="M 31.820312 12 C 13.438312 12 12 13.439312 12 31.820312 L 12 32.179688 C 12 50.560688 13.438313 52 31.820312 52 L 32.179688 52 C 50.561688 52 52 50.560688 52 32.179688 L 52 32 C 52 13.452 50.548 12 32 12 L 31.820312 12 z M 43.994141 18 C 45.099141 17.997 45.997 18.889141 46 19.994141 C 46.003 21.099141 45.110859 21.997 44.005859 22 C 42.900859 22.003 42.003 21.110859 42 20.005859 C 41.997 18.900859 42.889141 18.003 43.994141 18 z M 31.976562 22 C 37.498562 21.987 41.987 26.454563 42 31.976562 C 42.013 37.498562 37.545437 41.987 32.023438 42 C 26.501437 42.013 22.013 37.545437 22 32.023438 C 21.987 26.501437 26.454563 22.013 31.976562 22 z M 31.986328 26 C 28.672328 26.008 25.992 28.701625 26 32.015625 C 26.008 35.328625 28.700672 38.008 32.013672 38 C 35.327672 37.992 38.008 35.299328 38 31.986328 C 37.992 28.672328 35.299328 25.992 31.986328 26 z"
+                    ></path></svg
+                ></a>
+
+                <a href=""
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="54"
+                    height="54"
+                    viewBox="0 0 64 64"
+                    class="icons"
+                  >
+                    <path
+                      d="M53.527,17.427C55.714,19.677,56,23.252,56,32s-0.286,12.323-2.473,14.573C51.34,48.822,49.062,49,32,49	s-19.34-0.178-21.527-2.427C8.286,44.323,8,40.748,8,32s0.286-12.323,2.473-14.573S14.938,15,32,15S51.34,15.178,53.527,17.427z M27.95,39.417l12.146-7.038L27.95,25.451V39.417z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
