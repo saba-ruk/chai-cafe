@@ -128,7 +128,4 @@ Bachelor of Computer Applications (BCA)
 
 Final Year Project
 of this project.
-<img width="1826" height="808" alt="Screenshot 2026-06-07 101031" src="https://github.com/user-attachments/assets/d0a64e96-5af9-4326-aea7-a9f1eb0fb0cf" />
-<img width="1843" height="821" alt="Screenshot 2026-06-07 101055" src="https://github.com/user-attachments/assets/556a05d1-4082-4190-9b53-9e5c0d523272" />
-
 
